@@ -13,9 +13,6 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     
- 
-    
-    
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -23,8 +20,9 @@ def main():
         pygame.Surface.fill(screen, (0, 0, 0))
         player.draw(screen)
         pygame.display.flip()
+        player.update(dt)
         fps.tick(60)
-        dt += (fps.get_time() / 1000)
+        dt = (fps.get_time() / 1000)
         
 
 
